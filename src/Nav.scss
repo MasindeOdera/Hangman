@@ -1,0 +1,26 @@
+@import "./Styles.scss";
+
+.Header {
+    background-color: $primaryColor;
+    padding: 2px 0px 8px 0px;
+    nav {
+        color: $primaryWhite;
+        width: 80%;
+        margin: auto;
+        .Title {
+            display: inline-block;
+            width: 50%;
+            h2 {
+                text-align: left;
+            }
+        }
+        .Guess {
+            display: inline-block;
+            width: 50%;
+            p {
+                text-align: right;
+                font-weight: bold;
+            }
+        }
+    }
+}
