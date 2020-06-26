@@ -2,12 +2,28 @@
 
 .Buttons {
     background-color: crimson;
-    padding: 4rem;
+    padding: 2rem;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
     .Letter {
         background-color: $primaryColor;
         color: whitesmoke;
-        padding: 0.8rem;
+        padding: 1.2rem;
         cursor: pointer;
         font-weight: bold;
+        margin: 6px;
+        border-radius: 12px;
+        border-style: none;
+        font-size: 1.4rem;
+        width: 4rem;
     }
+    .Letter:active, .Letter:hover {
+        background-color: #000;
+        // color: white;
+      }
+}
+
+.Buttons.Letter:active, .Buttons.Letter:visited, .Buttons.Letter:focus-visible{
+    background-color: #000;
 }
