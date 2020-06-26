@@ -1,0 +1,9 @@
+@import "./Styles.scss";
+
+.Hangman {
+    img {
+        background-color: $primaryBlack;
+        filter: invert(1);
+        margin: auto;
+    }
+}

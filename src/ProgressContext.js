@@ -13,9 +13,12 @@ export const ProgressContext = createContext();
 
 export const ProgressProvider = props => {
     const stages = [step0, step1, step2, step3, step4, step5, step6];
+    const animals = ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"];
+    const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    // const letters = ["abcdefghijklmnopqrstuvwxyz"];
 
     return(
-        <ProgressContext.Provider value={[stages]}>
+        <ProgressContext.Provider value={[stages, animals, letters]}>
             {props.children}
         </ProgressContext.Provider>
     );

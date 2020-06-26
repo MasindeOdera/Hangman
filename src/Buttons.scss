@@ -1,0 +1,13 @@
+@import "./Styles.scss";
+
+.Buttons {
+    background-color: crimson;
+    padding: 4rem;
+    .Letter {
+        background-color: $primaryColor;
+        color: whitesmoke;
+        padding: 0.8rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+}
