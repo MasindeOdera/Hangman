@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {ProgressContext} from './ProgressContext';
-import './Buttons.scss';
+import '../style/Buttons.scss';
 
 function Buttons() {
     // eslint-disable-next-line

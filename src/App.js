@@ -1,9 +1,9 @@
 import React from 'react';
-import Nav from './Nav';
-import Hangman from './Hangman';
-import Mystery from './Mystery';
-import Buttons from './Buttons';
-import { ProgressProvider } from './ProgressContext';
+import Nav from './components/Nav';
+import Hangman from './components/Hangman';
+import Mystery from './components/Mystery';
+import Buttons from './components/Buttons';
+import { ProgressProvider } from './components/ProgressContext';
 import './App.css';
 
 function App() {

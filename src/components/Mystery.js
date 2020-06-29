@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
 import {ProgressContext} from './ProgressContext';
-import './Hangman.scss';
+import '../style/Mystery.scss';
 
-
-function Hangman() {
+function Mystery() {
     // eslint-disable-next-line
     const [stages, animals, letters] = useContext(ProgressContext);
-
-    return ( 
-        <div className="Hangman">
-            <img src={stages[6]} alt="Be sure to make this dynamic" />  
+    return (
+        <div className="Mystery">
+            <h4>{animals[4]}</h4>
         </div>
     )
 }
 
-export default Hangman;
+export default Mystery;

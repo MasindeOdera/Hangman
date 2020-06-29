@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {ProgressContext} from './ProgressContext';
-import './Nav.scss';
+import '../style/Nav.scss';
 
 function Nav() {
     const [stages] = useContext(ProgressContext);
