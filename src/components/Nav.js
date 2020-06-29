@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import {ProgressContext} from './ProgressContext';
+import {ProgressContext} from '../context/ProgressContext';
 import '../style/Nav.scss';
 
 function Nav() {
-    const [stages] = useContext(ProgressContext);
+    const { state } = useContext(ProgressContext);
 
     return (
         <div className="Header">
@@ -12,7 +12,7 @@ function Nav() {
                     <h2>Hangman</h2>
                 </div>
                 <div className="Guess">
-                    <p>Guesses: {stages.length -1}</p>
+                    <p>Guesses: {state.guess}</p>
                 </div>
             </nav>
         </div>

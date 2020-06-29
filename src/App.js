@@ -3,7 +3,7 @@ import Nav from './components/Nav';
 import Hangman from './components/Hangman';
 import Mystery from './components/Mystery';
 import Buttons from './components/Buttons';
-import { ProgressProvider } from './components/ProgressContext';
+import { ProgressProvider } from './context/ProgressContext';
 import './App.css';
 
 function App() {
