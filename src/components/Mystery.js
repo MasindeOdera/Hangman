@@ -13,7 +13,7 @@ function Mystery() {
         <div className="Mystery">
             {state.mystery === null ? 
                 <button className="Start" onClick={handleClick}>Start</button> : 
-                <h4>{state.mystery}</h4>
+                <div><h2>Guess the animal: </h2><h4>{state.mystery}</h4></div>
             }
         </div>
     )
