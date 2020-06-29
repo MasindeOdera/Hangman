@@ -6,15 +6,7 @@
     justify-content: center;
     margin: auto;
     .Letter {
-        background-color: $primaryColor;
-        color: whitesmoke;
-        padding: 1.2rem;
-        cursor: pointer;
-        font-weight: bold;
-        margin: 6px;
-        border-radius: 12px;
-        border-style: none;
-        font-size: 1.4rem;
+        @include button-style;
         width: 4rem;
     }
     .Letter:active, .Letter:visited, .Letter:hover {

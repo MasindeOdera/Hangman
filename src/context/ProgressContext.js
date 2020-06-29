@@ -25,15 +25,18 @@ export const ProgressProvider = ({ children }) => {
             guess: state.guess > 0 ? state.guess - 1 : 0
         }));
     };
-    // const mysteryAnimal = () => {
-    //     let randomAnimal = Math.floor(Math.random() * state.animals.length);
-    //     setState({
-    //         mystery: state.animals[randomAnimal]
-    //     });
+    const startGame = () => {
+        let randomAnimal = Math.floor(Math.random() * state.animals.length);
+        setState(prevState => ({
+            ...prevState,
+            mystery: state.animals[randomAnimal]
+        }));
+        console.log(state.mystery);
+    };
     
 
     return(
-        <ProgressContext.Provider value={{ state, wrongGuess }}>
+        <ProgressContext.Provider value={{ state, wrongGuess, startGame }}>
             {children}
         </ProgressContext.Provider>
     );

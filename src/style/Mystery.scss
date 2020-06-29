@@ -1,5 +1,7 @@
 @import "./Styles.scss";
 
 .Mystery {
-    background-color: blue;
+    .Start {
+        @include button-style;
+    }
 }
