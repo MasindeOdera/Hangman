@@ -9,7 +9,7 @@ function Hangman() {
 
     return ( 
         <div className="Hangman">
-            <img src={state.stages[6]} alt="Be sure to make this dynamic" />  
+            <img src={state.stages[0]} alt="Be sure to make this dynamic" />  
         </div>
     )
 }

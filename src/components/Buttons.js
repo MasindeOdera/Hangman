@@ -1,18 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {ProgressContext} from '../context/ProgressContext';
 import '../style/Buttons.scss';
 
 function Buttons() {
     const { state, wrongGuess }= useContext(ProgressContext);
-    const [clicked, setClicked] = useState('');
+    // const [state, setState] = useState({answer:""});
+    console.log(state);
 
     const handleClick = (e) => {
         let choice = e.target.value;
-        if(e.target){
-            setClicked(true);
+        console.log(state.mystery);
+        //Compare selected letter with mystery animal
+        if (state.mystery !== null){
+            if(state.mystery.has(choice)) {
+                //show letter
+            }
+            else {
+                wrongGuess();
+            }
         }
-        wrongGuess();
-        console.log(choice, clicked);
+        console.log(choice);
     };
 
     const alphabet = state.letters.map(letter => (
@@ -20,6 +27,7 @@ function Buttons() {
             className="Letter"
             // className={`Letter ${clicked ? ":active" : ""}`}
             key={letter}
+            id={letter}
             value={letter}
             onClick={handleClick}
         >

@@ -18,18 +18,21 @@ export const ProgressProvider = ({ children }) => {
         animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"],
         letters: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
         mystery: null,
+        answer: [],
     });
-    const wrongGuess = () => {
+    const wrongGuess = (choice) => {
         setState(prevState => ({
             ...prevState,
-            guess: state.guess > 0 ? state.guess - 1 : 0
+            guess: state.guess > 0 ? state.guess - 1 : 0,
+            answer: state.answer
         }));
+        console.log(state);
     };
     const startGame = () => {
         let randomAnimal = Math.floor(Math.random() * state.animals.length);
         setState(prevState => ({
             ...prevState,
-            mystery: state.animals[randomAnimal]
+            mystery: new Set(state.animals[randomAnimal])
         }));
         console.log(state.mystery);
     };
