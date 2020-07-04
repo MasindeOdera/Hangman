@@ -4,4 +4,12 @@
     .Start {
         @include button-style;
     }
+    .Word {
+        display: inline-flex;
+        h3 {
+            // padding: 1rem;
+            -webkit-text-security: square;
+            font-size: 2rem;
+        }
+    }
 }

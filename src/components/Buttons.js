@@ -4,19 +4,19 @@ import '../style/Buttons.scss';
 
 function Buttons() {
     const globalState = useContext(store);
-    const { letters, mystery } = globalState.state;
+    const { letters, mysteryCharacters } = globalState.state;
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
         let choice = e.target.value;
 
         //Compare selected letter with mystery animal
-        if(mystery !== null){
-            let eureka = mystery.includes(choice);
+        if(mysteryCharacters !== null){
+            let eureka = mysteryCharacters.includes(choice);
             // eslint-disable-next-line
             let letterChoice = eureka ? null : dispatch({ type: 'WRONG_GUESS' });
         }
-        console.log(choice, mystery);
+        console.log(choice, mysteryCharacters);
     };
 
     const alphabet = letters.map(letter => (
