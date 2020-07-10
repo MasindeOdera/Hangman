@@ -13,8 +13,8 @@ const initialState = {
     stages: [step0, step1, step2, step3, step4, step5, step6],
     animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"],
     letters: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
-    mysteryCharacters: null,
-    characters: null,
+    mysteryWord: null,
+    mysteryLetters: [],
     answer: [],
 };
 const store = createContext(initialState);
@@ -23,6 +23,11 @@ const { Provider } = store;
 const StateProvider = ( { children } ) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch(action.type) {
+        case 'CORRECT_GUESS':
+          return {
+              ...state,
+              answer: [...state.answer, action.payload],
+            };
         case 'WRONG_GUESS':
             return {
                 ...state,
@@ -31,7 +36,12 @@ const StateProvider = ( { children } ) => {
         case 'UPDATE_MYSTERY_WORD':
             return {
                 ...state,
-                mysteryCharacters: action.payload,
+                mysteryWord: action.payload,
+              };
+        case 'SPLIT_MYSTERY_WORD':
+            return {
+                ...state,
+                mysteryLetters: action.payload,
               };
         default:
             return initialState;

@@ -4,7 +4,7 @@ import '../style/Mystery.scss';
 
 function Mystery() {
     const globalState = useContext(store);
-    const { animals, mysteryCharacters } = globalState.state;
+    const { animals, mysteryWord } = globalState.state;
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
@@ -12,14 +12,16 @@ function Mystery() {
         let randomAnimal = Math.floor(Math.random() * animals.length);
         console.log(animals[randomAnimal]);
         dispatch({ type: 'UPDATE_MYSTERY_WORD', payload: animals[randomAnimal] });
+        const letters = animals[randomAnimal].split('');
+        dispatch({ type: 'SPLIT_MYSTERY_WORD', payload: letters });
     };
 
-    const mysteryLetters = mysteryCharacters !== null ? mysteryCharacters.split('') : null;
+    const mysteryLetters = mysteryWord !== null ? mysteryWord.split('') : null;
     console.log(globalState, mysteryLetters);
 
     return (
         <div className="Mystery">
-            {mysteryCharacters === null ? 
+            {mysteryWord === null ? 
                 <button className="Start" onClick={handleClick}>Start</button> : 
                 <div>
                     <h2>Guess the animal: </h2>

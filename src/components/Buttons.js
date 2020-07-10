@@ -4,19 +4,20 @@ import '../style/Buttons.scss';
 
 function Buttons() {
     const globalState = useContext(store);
-    const { letters, mysteryCharacters } = globalState.state;
+    const { letters, mysteryWord } = globalState.state;
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
         let choice = e.target.value;
 
         //Compare selected letter with mystery animal
-        if(mysteryCharacters !== null){
-            let eureka = mysteryCharacters.includes(choice);
+        if(mysteryWord !== null){
+            let eureka = mysteryWord.includes(choice);
+            // if eureka is false, then dispatch wrong guess, otherwise correct guess
             // eslint-disable-next-line
-            let letterChoice = eureka ? null : dispatch({ type: 'WRONG_GUESS' });
+            let letterChoice = eureka ? dispatch({ type: 'CORRECT_GUESS', payload: choice }) : dispatch({ type: 'WRONG_GUESS' });
         }
-        console.log(choice, mysteryCharacters);
+        console.log(choice, mysteryWord);
     };
 
     const alphabet = letters.map(letter => (
