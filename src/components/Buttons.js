@@ -28,6 +28,9 @@ function Buttons() {
                 dispatch({ type: 'WRONG_GUESS' });
             }
         }
+
+        //Improve user experince by scrolling up to the hangman image.
+        window.scrollTo({top: 0, behavior: 'smooth'});
         console.log(choice, mysteryWord, letters);
     };
 
