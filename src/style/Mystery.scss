@@ -5,11 +5,16 @@
         @include button-style;
     }
     .Word {
+        line-height: 1.6;
+        font-size: 2rem;
         display: inline-flex;
-        h3 {
-            // padding: 1rem;
+        span.Answer {
             -webkit-text-security: square;
-            font-size: 2rem;
+        }
+        span.Answer:active {
+            padding: 1rem;
+            -webkit-text-security: none;
+            font-weight: bold;
         }
     }
 }

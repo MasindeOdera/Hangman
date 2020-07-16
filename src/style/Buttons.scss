@@ -12,10 +12,11 @@
     .Letter:active, .Letter:visited, .Letter:hover {
         background-color: #000;
     }
-    button:disabled {
+    .Letter:disabled {
         color: #d6dfdf;
         background-color: #ff1100;
         border-color: #ff1100;
         box-shadow: 0 0 40px #ff1100;
+        cursor: default;
     }
 }

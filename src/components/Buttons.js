@@ -8,25 +8,34 @@ function Buttons() {
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
+        e.preventDefault();
         let choice = e.target.value;
+        let letter = e.target.id;
+        
+        //If button is clicked & game has started, then disable button.
+        if(e.target.id && mysteryWord !== null){
+            e.target.disabled = true;
+        }
 
         //Compare selected letter with mystery animal
         if(mysteryWord !== null){
-            let eureka = mysteryWord.includes(choice);
+            let eureka = mysteryWord.includes(letter);
             // if eureka is false, then dispatch wrong guess, otherwise correct guess
-            // eslint-disable-next-line
-            let letterChoice = eureka ? dispatch({ type: 'CORRECT_GUESS', payload: choice }) : dispatch({ type: 'WRONG_GUESS' });
+            if(eureka) {
+                dispatch({ type: 'CORRECT_GUESS', payload: letter });
+            }
+            else {
+                dispatch({ type: 'WRONG_GUESS' });
+            }
         }
-        console.log(choice, mysteryWord);
+        console.log(choice, mysteryWord, letters);
     };
 
-    const alphabet = letters.map(letter => (
+    const alphabet = letters.map((letter, index) => (
         <button
             className="Letter"
-            // className={`Letter ${clicked ? ":active" : ""}`}
-            key={letter}
+            key={index}
             id={letter}
-            value={letter}
             onClick={handleClick}
         >
             {letter}

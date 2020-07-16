@@ -16,6 +16,7 @@ const initialState = {
     mysteryWord: null,
     mysteryLetters: [],
     answer: [],
+    usedLetter:"",
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -43,6 +44,12 @@ const StateProvider = ( { children } ) => {
                 ...state,
                 mysteryLetters: action.payload,
               };
+        case 'UPDATE_LETTERS':
+          return {
+              ...state,
+              letters: state.letters.includes(state.usedLetter) ?
+                state.letters.available = false : state.letters.available = false,
+            };
         default:
             return initialState;
     };
