@@ -11,7 +11,8 @@ import step0 from "../images/6.png";
 const initialState = {
     guess: 6,
     stages: [step0, step1, step2, step3, step4, step5, step6],
-    animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"],
+    animals: ["frog", "dog", "cat", "mouse", "monkey", "hare", "horse", "donkey", "lion", "bird"],
+    // animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"],
     letters: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
     mysteryWord: null,
     mysteryLetters: [],
