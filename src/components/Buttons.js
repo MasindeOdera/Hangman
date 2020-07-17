@@ -9,7 +9,6 @@ function Buttons() {
 
     const handleClick = (e) => {
         e.preventDefault();
-        let choice = e.target.value;
         let letter = e.target.id;
         
         //If button is clicked & game has started, then disable button.
@@ -31,11 +30,10 @@ function Buttons() {
 
         //Improve user experince by scrolling up to the hangman image.
         window.scrollTo({top: 0, behavior: 'smooth'});
-        console.log(choice, mysteryWord);
     };
 
     const handleClickRestart = (e) => {
-        console.log("Restart game");
+        window.location.reload(true);
     };
 
     const alphabet = letters.map((letter, index) => (
@@ -49,16 +47,20 @@ function Buttons() {
         </button>
     ));
 
-    const restart = <button className="Letter" onClick={handleClickRestart}>Restart</button>;
+    //Restart the game, it is only displayed if either victory or loss is present. Controlled in return.
+    const restart = <button className="Restart" onClick={handleClickRestart}>Restart</button>;
 
+    //Only victors see this message.
     const victory = mysteryLetters.length === answer.length && mysteryWord !== null ? 
         <h4>Congratulations! You guessed correctly.</h4> : 
         null;
 
+    //Losers are told what the word was.
     const loss = guess === 0 ? 
         <h4>You used up 6 guesses! The word was <b>{mysteryWord}</b>.</h4> : 
         null;
 
+    //conclusion is responsible for displaying the consequences of the letters selected.
     const conclusion = victory || loss;
 
     return (

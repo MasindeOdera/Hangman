@@ -44,12 +44,6 @@ const StateProvider = ( { children } ) => {
                 ...state,
                 mysteryLetters: action.payload,
               };
-        case 'UPDATE_LETTERS':
-          return {
-              ...state,
-              letters: state.letters.includes(state.usedLetter) ?
-                state.letters.available = false : state.letters.available = false,
-            };
         default:
             return initialState;
     };

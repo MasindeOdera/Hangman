@@ -20,14 +20,12 @@ function Mystery() {
 
     };
 
-    console.log(globalState, mysteryLetters, mysteryWord, answer);
-
     return (
         <div className="Mystery">
             {mysteryWord === null ? 
                 <button className="Start" onClick={handleClick}>Start</button> : 
                 <div>
-                    <h2>Guess the animal: </h2>
+                    <h3>Guess the animal: </h3>
                     <div className="Word">
                     { mysteryLetters.map((mysteryLetter, index) => (
                         <span key={index} className={`Answer${answer.includes(mysteryLetter) ?  ":active" : ""}`}>

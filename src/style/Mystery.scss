@@ -3,6 +3,7 @@
 .Mystery {
     .Start {
         @include button-style;
+        padding: 0.6rem;
     }
     .Word {
         line-height: 1.6;

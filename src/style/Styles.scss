@@ -9,10 +9,11 @@ $primaryColorError: #ff1100;
 @mixin button-style {
     background-color: $primaryColor;
     color: $primaryWhite;
-    padding: 1.2rem;
+    // padding: 0.6rem;
+    // padding: 1.2rem;
     cursor: pointer;
     font-weight: bold;
-    margin: 6px;
+    // margin: 6px;
     border-radius: 12px;
     border-style: none;
     font-size: 1.4rem;
