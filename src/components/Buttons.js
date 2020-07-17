@@ -4,7 +4,7 @@ import '../style/Buttons.scss';
 
 function Buttons() {
     const globalState = useContext(store);
-    const { letters, mysteryWord } = globalState.state;
+    const { letters, mysteryWord, mysteryLetters, answer, guess } = globalState.state;
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
@@ -31,7 +31,11 @@ function Buttons() {
 
         //Improve user experince by scrolling up to the hangman image.
         window.scrollTo({top: 0, behavior: 'smooth'});
-        console.log(choice, mysteryWord, letters);
+        console.log(choice, mysteryWord);
+    };
+
+    const handleClickRestart = (e) => {
+        console.log("Restart game");
     };
 
     const alphabet = letters.map((letter, index) => (
@@ -45,9 +49,23 @@ function Buttons() {
         </button>
     ));
 
+    const restart = <button className="Letter" onClick={handleClickRestart}>Restart</button>;
+
+    const victory = mysteryLetters.length === answer.length && mysteryWord !== null ? 
+        <h4>Congratulations! You guessed correctly.</h4> : 
+        null;
+
+    const loss = guess === 0 ? 
+        <h4>You used up 6 guesses! The word was <b>{mysteryWord}</b>.</h4> : 
+        null;
+
+    const conclusion = victory || loss;
+
     return (
         <div className="Buttons">
-            { alphabet }
+            { conclusion }
+            { !conclusion ? alphabet : null }
+            { victory  || loss ? restart : null }
         </div>
     )
 }

@@ -3,6 +3,8 @@
 $primaryBlack: #000;
 $primaryWhite: #fff;
 $primaryColor: #006666;
+$primaryColorText: #d6dfdf;
+$primaryColorError: #ff1100;
 
 @mixin button-style {
     background-color: $primaryColor;
@@ -14,4 +16,12 @@ $primaryColor: #006666;
     border-radius: 12px;
     border-style: none;
     font-size: 1.4rem;
+}
+
+@mixin button-style-clicked {
+    color: $primaryColorText;
+    background-color: $primaryColorError;
+    border-color: $primaryColorError;
+    box-shadow: 0 0 40px $primaryColorError;
+    cursor: default;
 }
