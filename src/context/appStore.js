@@ -11,13 +11,17 @@ import step0 from "../images/6.png";
 const initialState = {
     guess: 6,
     stages: [step0, step1, step2, step3, step4, step5, step6],
-    animals: ["frog", "dog", "cat", "mouse", "monkey", "hare", "horse", "donkey", "lion", "bird"],
-    // animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", "donkey", "elephant", "bird"],
+    animals: ["frog", "dog", "cat", "mouse", "rabbit", "hare", "horse", 
+      "donkey", "elephant", "bird", "monkey", "lion", "giraffe", "tiger", 
+      "chicken", "bear", "sheep", "fox", "goat", "parrot", "kangaroo", 
+      "gorilla", "raccoon", "wolf", "eagle", "panda", "cheetah", "spider", 
+      "shark", "goose", "squirrel", "deer"],
     letters: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
     mysteryWord: null,
     mysteryLetters: [],
     answer: [],
     usedLetter:"",
+    length: 0,
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -45,6 +49,11 @@ const StateProvider = ( { children } ) => {
                 ...state,
                 mysteryLetters: action.payload,
               };
+        case 'KEEP_COUNT':
+          return {
+              ...state,
+              length: state.length + action.payload,
+            };
         default:
             return initialState;
     };

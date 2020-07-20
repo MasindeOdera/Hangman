@@ -4,7 +4,7 @@ import '../style/Buttons.scss';
 
 function Buttons() {
     const globalState = useContext(store);
-    const { letters, mysteryWord, mysteryLetters, answer, guess } = globalState.state;
+    const { letters, mysteryWord, mysteryLetters, guess, length } = globalState.state;
     const { dispatch } = globalState;
 
     const handleClick = (e) => {
@@ -16,12 +16,27 @@ function Buttons() {
             e.target.disabled = true;
         }
 
-        //Compare selected letter with mystery animal
         if(mysteryWord !== null){
             let eureka = mysteryWord.includes(letter);
             // if eureka is false, then dispatch wrong guess, otherwise correct guess
             if(eureka) {
                 dispatch({ type: 'CORRECT_GUESS', payload: letter });
+                //Some words have repeating letters, so this counts the number of times the specific
+                //letter is in the word.
+                function char_count(str, letter) {
+                    let letter_Count = 0;
+                    for (let position = 0; position < str.length; position++) 
+                    {
+                        if (str.charAt(position) === letter) 
+                        {
+                            letter_Count += 1;
+                        }
+                    }
+                    return letter_Count;
+                };
+                //Keeping track of the number of letters, saving it for a comparison later.
+                let length = char_count(mysteryWord, letter);
+                dispatch({ type: 'KEEP_COUNT', payload: length });
             }
             else {
                 dispatch({ type: 'WRONG_GUESS' });
@@ -51,7 +66,7 @@ function Buttons() {
     const restart = <button className="Restart" onClick={handleClickRestart}>Restart</button>;
 
     //Only victors see this message.
-    const victory = mysteryLetters.length === answer.length && mysteryWord !== null ? 
+    const victory = mysteryLetters.length === length && mysteryWord !== null ? 
         <h4>Congratulations! You guessed correctly.</h4> : 
         null;
 
